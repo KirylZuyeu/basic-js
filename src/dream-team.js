@@ -1,15 +1,14 @@
 module.exports = function createDreamTeam(members) {
-	    let newArr = arr.filter(function(name) {
-        if (typeof(name) == typeof('a')) return name;});
-    let sortArr = [];
-    for (let i = 0; i < newArr.length; i++) {
-        sortArr[i] = newArr[i].split(' ').join('');
-    }
-    let newArr1 = sortArr.filter(function(name) {
-        let re = /^[A-Z]+[a-z]+$/;
-            if (re.test(name)) {
-                return name;
+    if (!Array.isArray(members)) return false;
+
+	    let newArr = members.filter(function(name) {
+        if (typeof(name) == typeof('a')) return name;}).map(item => item.split(' ').join('').toUpperCase()[0]);
+
+    let newArr1 = newArr.filter( function(letter) {
+        let re = /^[A-Z]$/;
+            if (re.test(letter)) {
+                return letter;
             }
-        }).map(name => name.charAt(0)).sort().join('');
+        }).sort().join('');
         return newArr1;
 };

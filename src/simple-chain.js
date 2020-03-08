@@ -12,7 +12,8 @@ const chainMaker = {
       return this;
     },
     removeLink(position) {
-      if (typeof(position) !== 'number' || this.chain[position - 1] === undefined || (position ^ 0) !== position || position < 0) {
+      if (typeof(position) !== typeof(3) || this.chain[position - 1] === undefined || (position ^ 0) !== position || position < 0) {
+        this.chain = [];
         throw new Error;
       }
       this.chain.splice((position - 1), 1);
@@ -22,8 +23,10 @@ const chainMaker = {
       this.chain.reverse();
       return this;
     },
-    finishChain() {;
-      return this.chain.join('~~');
+    finishChain() {
+    let chain = this.chain.join('~~');
+    this.chain = [];
+    return chain;
     }
 };
 

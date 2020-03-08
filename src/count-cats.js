@@ -1,5 +1,4 @@
 module.exports = function countCats(matrix) {
-	 let arrOne = [];
-    let lengthOfArray = arrOne.concat(...backyard).length;
-    return lengthOfArray;
+    let arrOne = [];
+    return arrOne.concat(...matrix).filter(item => (item === '^^')).length;
 };
